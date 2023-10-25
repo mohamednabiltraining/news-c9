@@ -1,19 +1,22 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app_c9_sun/api/ApiManager.dart';
-import 'package:news_app_c9_sun/model/sourcesResponse/Source.dart';
+import 'package:injectable/injectable.dart';
+import 'package:news_app_c9_sun/data/model/sourcesResponse/Source.dart';
+import 'package:news_app_c9_sun/repsitoryContract/NewsSourceRepository.dart';
 
+@injectable
 class CategoryDetailsViewModel extends Cubit<CategoryDetailsState>{
-  CategoryDetailsViewModel():super(LoadingState('Loading...'));
+
+  NewsSourceRepository repository;
+
+  @factoryMethod
+  CategoryDetailsViewModel(this.repository):super(LoadingState('Loading...'));
+
 
   void loadSources(String categoryId)async{
     emit(LoadingState('Loading...'));
     try{
-      var response = await ApiManager.getSources(categoryId);
-      if(response.status=='error'){
-        emit(ErrorState(response.message??""));
-      }else {
-        emit(SuccessState(response.sources));
-      }
+      var sourcesList = await repository.getSources(categoryId);
+      emit(SuccessState(sourcesList));
     }catch(e){
       emit(ErrorState(e.toString()));
     }

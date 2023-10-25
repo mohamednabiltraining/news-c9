@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app_c9_sun/model/sourcesResponse/Source.dart';
+import 'package:news_app_c9_sun/data/model/sourcesResponse/Source.dart';
 
 class TabWidget extends StatelessWidget {
   Source source;

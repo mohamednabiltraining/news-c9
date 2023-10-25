@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app_c9_sun/model/sourcesResponse/Source.dart';
+import 'package:news_app_c9_sun/data/model/sourcesResponse/Source.dart';
+import 'package:news_app_c9_sun/di/di.dart';
 import 'package:news_app_c9_sun/ui/home/news/NewsViewModel.dart';
 import 'package:news_app_c9_sun/ui/home/news/NewsWidget.dart';
 
@@ -13,7 +14,7 @@ class NewsListWidget extends StatefulWidget {
 }
 
 class _NewsListWidgetState extends State<NewsListWidget> {
-  var viewModel = NewsViewModel();
+  var viewModel = getIt.get<NewsViewModel>();
 
   @override
   void initState() {

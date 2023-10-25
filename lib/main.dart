@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_c9_sun/di/di.dart';
 import 'package:news_app_c9_sun/ui/home/HomeScreen.dart';
 
 void main() {
+  configureDependencies();
   runApp(const MyApp());
 }
 

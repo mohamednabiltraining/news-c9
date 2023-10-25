@@ -1,5 +1,6 @@
 
-import 'package:news_app_c9_sun/model/sourcesResponse/Source.dart';
+
+import 'package:news_app_c9_sun/data/model/sourcesResponse/Source.dart';
 
 /// source : {"id":"wired","name":"Wired"}
 /// author : "Gideon Lichfield, Lauren Goode"
